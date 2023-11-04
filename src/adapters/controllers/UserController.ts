@@ -41,7 +41,7 @@ export class UserController {
       return response({
         req,
         res,
-        status: 201,
+        status: 200,
         body: {
           message: "Get users",
           data: users,
