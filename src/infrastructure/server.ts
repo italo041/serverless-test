@@ -1,6 +1,7 @@
 import express, { Application } from "express";
+import { config } from "./config";
 
 const app: Application = express();
 
-app.listen(3000, () => console.log(`Escuchando en el puerto 3000`));
+app.listen(config.app.port, () => console.log(`Listen on port ${config.app.port}`));
 
