@@ -18,8 +18,13 @@ export const connect: Sequelize = dependencies.dataBaseService.connect(
 connect
   .authenticate()
   .then((): void => {
-    app.use(express.json())
+    app.use(express.json());
     app.use("/api", apiRouter(dependencies));
+
+    app.use((err: any, req: any, res: any, next: any) => {
+      console.error(err.stack);
+      res.status(500).json({ error: err.message });
+    });
 
     app.listen(config.app.port, () =>
       console.log(`Listen on port ${config.app.port}`)
