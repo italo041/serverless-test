@@ -1,0 +1,102 @@
+{
+    "env": {
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb-base",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint"
+    ],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["src"],
+                "extensions": [".ts"]
+            }
+        }
+    },
+    "rules": {
+        "import/extensions": "off",
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "semi": "error", // If there is not ; after each code
+        "no-var": "error", // Allows the use of let and const
+        "prefer-const": "warn",
+        "quotes": [
+            "error",
+            "double",
+            {
+                "allowTemplateLiterals": true
+            }
+        ],
+        "no-multi-spaces": "error", // If there are extra spaces when defining a line of code
+        "space-in-parens": "error", // That does not allow spaces in the parentheses that is together
+        "no-multiple-empty-lines": "error", // Allows a max.(2 by default) of line breaks or empty lines
+        "comma-dangle": [
+            "error",
+            "never"
+        ], // Does not allow trailing commas in a [] or {} by default. it's never
+        "object-curly-spacing": [
+            "error",
+            "always"
+        ], // Allow spacing in curly braces from start to end of an object
+        "indent": [ // Indent space
+            "error",
+            4,
+            {
+                "SwitchCase": 1
+            }
+        ],
+        "arrow-parens": [
+            "error",
+            "as-needed"
+        ], // Add parentheses when needed in arrow functions
+        "arrow-body-style": [
+            "error",
+            "as-needed"
+        ], // Style after an arrow function when necessary
+        "no-useless-constructor": "off", // Allow constructors to go empty
+        "no-console": "off", // Enables the use of console.log
+        "class-methods-use-this": "off", // To indicate that it is not always necessary to use this in a method of a class
+        "import/prefer-default-export": "off", // To avoid using export default always
+        "no-param-reassign": "warn", // For reassignment of the same parameter
+        "no-underscore-dangle": "off", // To allow _ in variable names
+        "object-curly-newline": [
+            "error",
+            {
+                "multiline": true
+            }
+        ],
+        "radix": [
+            "error",
+            "as-needed"
+        ], // For conversion to integer use
+        "max-len": [
+            "error",
+            {
+                "code": 140
+            }
+        ], // line max.
+        "function-paren-newline": "off", // Allow line skipping in functions in the parameters
+        "@typescript-eslint/no-empty-interface": "off", // Allow interfaces to be empty
+        "curly": [
+            "error",
+            "multi"
+        ], // if necesary {}
+        "array-callback-return": "off", // That it is not necessary for the map or foreach to have return
+        "no-plusplus": "off", // Allow use ++
+        "no-continue": "off" // Allow use of continue
+    },
+    "ignorePatterns": ["**/*.js"]
+}
