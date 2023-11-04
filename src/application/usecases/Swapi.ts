@@ -1,4 +1,4 @@
-import { PeopleParams } from "../../adapters/types/SwapiParams";
+import { PersonParams } from "../../adapters/types/SwapiParams";
 import { SwapiRepository } from "../contracts/repositories/SwapiRepository";
 
 export class Swapi {
@@ -6,7 +6,7 @@ export class Swapi {
         private swapiRepository: SwapiRepository
     ){}
 
-    async getPeople(query: PeopleParams) {
-        return this.swapiRepository.getPeople(query);
+    async getPerson(query: PersonParams) {
+        return this.swapiRepository.getPerson(query);
     }
 }

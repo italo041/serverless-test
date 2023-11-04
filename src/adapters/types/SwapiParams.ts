@@ -1,5 +1,5 @@
-type PeopleParams = {
+type PersonParams = {
   search?: string;
 };
 
-export { PeopleParams };
+export { PersonParams };

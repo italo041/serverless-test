@@ -1,7 +1,7 @@
-import { PeopleParams } from "../../../adapters/types/SwapiParams";
+import { PersonParams } from "../../../adapters/types/SwapiParams";
 
 interface SwapiService {
-    getPeople(params: PeopleParams): Promise<[]>,
+    getPerson(params: PersonParams): Promise<[]>,
 }
 
 export { SwapiService };

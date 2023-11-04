@@ -6,7 +6,7 @@ export const swapiRouter = (services: Services): Router => {
   const router = express.Router();
   const controller = new SwapiController(services.swapiService);
 
-  router.route("/").get(controller.getPeople); // Create
+  router.route("/").get(controller.getPerson); // Create
 
   return router;
 };
