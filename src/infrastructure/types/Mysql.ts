@@ -1,5 +1,6 @@
 
 import { UserRepositoryMysql } from "../database/mysql/user/UserRepositoryMysql";
+import { ApiSwapiService } from "../externalServices/swapi";
 
 type DbConfig = {
     host: string,
@@ -11,6 +12,7 @@ type DbConfig = {
 
 type Services = {
     userRepository: UserRepositoryMysql,
+    swapiService: ApiSwapiService,
 }
 
 export {

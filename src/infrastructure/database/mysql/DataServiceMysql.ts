@@ -5,6 +5,7 @@ import { DbConfig, Services } from "../../types/Mysql";
 
 import { UserModel } from "./user/UserModel";
 import { UserRepositoryMysql } from "./user/UserRepositoryMysql";
+import { ApiSwapiService } from "../../externalServices/swapi";
 
 export class DataServicePostgre extends DataBaseService {
     private seque: { [key: string]: Sequelize } = {};
@@ -41,9 +42,11 @@ export class DataServicePostgre extends DataBaseService {
 
         // Services
         const userRepository = new UserRepositoryMysql(model.userModel);
+        const swapiService = new ApiSwapiService();
 
         return {
             userRepository,
+            swapiService,
         };
     };
 }

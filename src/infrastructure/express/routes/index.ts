@@ -4,6 +4,7 @@ import { config } from "../../config";
 import { AppDependencies } from "../../interfaces/Postgre";
 
 import { userRouter } from "./user";
+import { swapiRouter } from "./swapi";
 
 export const apiRouter = (dependencies: AppDependencies): Router => {
     const router = express.Router();
@@ -13,6 +14,7 @@ export const apiRouter = (dependencies: AppDependencies): Router => {
 
     // Loading services to routes
     const user = userRouter(services);
+    const swapi = swapiRouter(services);
 
     router.use("*", (req: Request, res: Response, next: NextFunction) => {
         res.removeHeader("X-Powered-By");
@@ -20,6 +22,7 @@ export const apiRouter = (dependencies: AppDependencies): Router => {
     });
 
     router.use("/user", user);
+    router.use("/swapi", swapi);
 
     return router;
 };

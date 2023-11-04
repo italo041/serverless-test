@@ -18,8 +18,7 @@ export const config = {
     },
     apis: {
         swapi: {
-            url: "swapiapi",
-            key: "sukey"
+            url: "https://swapi.py4e.com/api",
         }
     },
 };
