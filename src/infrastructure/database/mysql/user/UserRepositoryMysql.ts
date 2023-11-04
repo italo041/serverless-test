@@ -3,18 +3,17 @@ import { UserRepository } from "../../../../application/contracts/repositories/U
 import { UserInstance, UserModel } from "./UserModel";
 
 export class UserRepositoryMysql implements UserRepository {
-    constructor(
-        private userModel: UserModel,
-    ) { }
+  constructor(private userModel: UserModel) {}
 
-    createUser = async (user: UserBody): Promise<UserInstance> => {
-        const userCreated = await this.userModel.execute.create({ name: user.name as string })
-        return userCreated ;
-    };
+  createUser = async (user: UserBody): Promise<UserInstance> => {
+    const userCreated = await this.userModel.execute.create({
+      name: user.name as string,
+    });
+    return userCreated;
+  };
 
-    getUser = async (): Promise<void> => {
-        console.log("createuser");
-
-        return ;
-    };
+  getUsers = async (): Promise<UserInstance[]> => {
+    const users = await this.userModel.execute.findAll();
+    return users;
+  };
 }

@@ -6,8 +6,8 @@ export class User {
         private userRepository: UserRepository
     ){}
 
-    async getUser() {
-        return this.userRepository.getUser();
+    async getUsers() {
+        return this.userRepository.getUsers();
     }
 
     async createUser(body: UserBody) {
