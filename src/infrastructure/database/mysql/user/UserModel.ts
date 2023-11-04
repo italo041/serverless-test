@@ -20,5 +20,7 @@ export class UserModel {
 
   public read = this.connectR.define<UserInstance>("users", this.bodyModel);
 
-  public execute = this.connectE.define<UserInstance>("users", this.bodyModel);
+  public execute = this.connectE.define<UserInstance>("users", this.bodyModel, {
+    timestamps: false,
+  });
 }

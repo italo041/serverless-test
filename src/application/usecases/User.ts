@@ -1,3 +1,4 @@
+import { UserBody } from "../../adapters/types/UserParams";
 import { UserRepository } from "../contracts/repositories/UserRepository";
 
 export class User {
@@ -9,7 +10,7 @@ export class User {
         return this.userRepository.getUser();
     }
 
-    async createUser() {
-        return this.userRepository.createUser();
+    async createUser(body: UserBody) {
+        return this.userRepository.createUser(body);
     }
 }

@@ -18,6 +18,7 @@ export const connect: Sequelize = dependencies.dataBaseService.connect(
 connect
   .authenticate()
   .then((): void => {
+    app.use(express.json())
     app.use("/api", apiRouter(dependencies));
 
     app.listen(config.app.port, () =>
