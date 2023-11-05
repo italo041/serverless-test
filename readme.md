@@ -25,4 +25,4 @@ serverless deploy
 Localmente por defecto se ejecuta en (ver en consola):
 
 ```
-Swagger http://localhost:3000/api/swagger/api-docs/
+Swagger http://localhost:3000/api-docs/
