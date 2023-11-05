@@ -1,0 +1,24 @@
+service: serverless-test
+
+frameworkVersion: "3"
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  environment:
+    NODE_ENV: dev
+
+plugins:
+  - serverless-plugin-typescript 
+  - serverless-offline
+
+package:
+  include:
+    - .env
+
+functions:
+  api:
+    handler: src/infrastructure/server.handler
+    events:
+      - httpApi: '*'
+      - timeout: 30

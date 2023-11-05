@@ -4,6 +4,7 @@ import { apiRouter } from "./express/routes";
 import { AppDependencies } from "./interfaces/Postgre";
 import { DataServicePostgre } from "./database/mysql/DataServiceMysql";
 import { Sequelize } from "sequelize";
+import ServerlessHttp from "serverless-http";
 
 const app: Application = express();
 
@@ -26,8 +27,7 @@ connect
       res.status(500).json({ error: err.message });
     });
 
-    app.listen(config.app.port, () =>
-      console.log(`Listen on port ${config.app.port}`)
-    );
   })
   .catch((e) => console.log(e));
+
+module.exports.handler = ServerlessHttp(app);
