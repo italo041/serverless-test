@@ -1,0 +1,58 @@
+openapi: 3.0.1
+info:
+  title: Serverless - indra
+  description: Developers API docs.
+  version: 1.0.0
+servers:
+- url: http://localhost:3000/
+- url: https://localhost:3000/
+
+paths:
+  /api/user:
+    get:
+      summary: Obtener información de un usuario
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              example:
+                name: Ejemplo de usuario
+    post:
+      summary: Crear un usuario
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+      responses:
+        '201':
+          description: Usuario creado con éxito
+  /api/swapi:
+    get:
+      summary: Buscar personaje de Swapi
+      parameters:
+        - in: query
+          name: search
+          required: true
+          schema:
+            type: string
+          description: El nombre o término de búsqueda del personaje de Swapi.
+      responses:
+        '200':
+          description: Respuesta exitosa
+          content:
+            application/json:
+              example:
+                message: Personaje encontrado
+                data:
+                  name: Yoda
+                  species: Unknown
+                  height: 66
+                  mass: 17
+                  hair_color: white
+                  skin_color: green

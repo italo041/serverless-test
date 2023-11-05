@@ -4,6 +4,7 @@ import { apiRouter } from "./express/routes";
 import { AppDependencies } from "./interfaces/Postgre";
 import { DataServicePostgre } from "./database/mysql/DataServiceMysql";
 import { Sequelize } from "sequelize";
+import { swaggerRouter } from "./express/routes/swagger";
 import ServerlessHttp from "serverless-http";
 
 const app: Application = express();
@@ -21,7 +22,8 @@ connect
   .then((): void => {
     app.use(express.json());
     app.use("/api", apiRouter(dependencies));
-
+    app.use("/api-docs", swaggerRouter());
+    
     app.use((err: any, req: any, res: any, next: any) => {
       console.error(err.stack);
       res.status(500).json({ error: err.message });
